@@ -215,25 +215,21 @@ public class ClassroomGUI {
 	    }else if(cbTelematic.isSelected() && cbIndustrial.isSelected()){
 	    	career.add(cbTelematic);
 	    	career.add(cbIndustrial);
-	    }
-	    Classroom.addUser(txtUsername1.getText(), txtPassword1.getText(), selectedRB.getText().toString(), career.toString(), dpBirthday.getValue().toString(), chbFBrowser.getValue().toString());
-       	Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("Account created");
-		alert.setHeaderText(null);
-		alert.setContentText("The new account has been created");
-		alert.showAndWait();
-	    
-	    /**if(txtUsername1.getText() == "" || txtPassword1.getText() == "" || selectedRB.equals(null) || career.isEmpty() || dpBirthday.getValue().equals(null) || chbFBrowser.getValue().equals(null)) {
+	    } 
+	    if(txtUsername1.getText() == "" || txtPassword1.getText() == "" || selectedRB.equals(null) || career.isEmpty() || dpBirthday.getValue().equals(null) || chbFBrowser.getValue().equals(null)) {
 	    	Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Validation Error");
 			alert.setHeaderText("You must fill each field in the form");
 			alert.setContentText(null);
 			alert.showAndWait();
 	    }else {
-	       	
-	    }**/
-	    
-    	
+	    	Classroom.addUser(txtUsername1.getText(), txtPassword1.getText(), selectedRB.getText().toString(), career.toString(), dpBirthday.getValue().toString(), chbFBrowser.getValue().toString());
+	       	Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Account created");
+			alert.setHeaderText(null);
+			alert.setContentText("The new account has been created");
+			alert.showAndWait();
+	    }
     }
 	
 
@@ -252,7 +248,6 @@ public class ClassroomGUI {
     void openFileExplorer(ActionEvent event) {
     	FileChooser fc = new FileChooser();
    	 	fc.setTitle("Open Resource File");
-   	 	/**fc.getExtensionFilters().addAll(new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"),**/
    	 	File selectedFile = fc.showOpenDialog(null);
    	 	if (selectedFile != null) {
    	 		txtProfilePhoto.setText(selectedFile.getName());
@@ -268,7 +263,5 @@ public class ClassroomGUI {
     	mainPane.getChildren().clear();
     	mainPane.setTop(logOutPane);
     }
-    
-    
 
 }
